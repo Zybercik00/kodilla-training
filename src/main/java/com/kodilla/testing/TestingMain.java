@@ -1,6 +1,7 @@
 package com.kodilla.testing;
 
 import com.kodilla.testing.calculator.Calculator;
+import com.kodilla.testing.shape.Circle;
 
 public class TestingMain {
     public static void main(String[] args) {
@@ -15,6 +16,10 @@ public class TestingMain {
         } else {
             System.out.println("Substract doesn't works");
         }
+
+        Circle circle = new Circle(4.5);
+        Circle circle2 = new Circle(10);
+        double circleField = circle.getField();
     }
 }
 
