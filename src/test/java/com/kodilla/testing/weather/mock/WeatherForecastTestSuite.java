@@ -2,6 +2,7 @@ package com.kodilla.testing.weather.mock;
 import com.kodilla.testing.weather.stub.Temperatures;                         // [2]
 import com.kodilla.testing.weather.stub.WeatherForecast;                      // [3]
 import org.junit.jupiter.api.Assertions;                                      // [4]
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;                                            // [5]
 
 import java.util.HashMap;
