@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Collection Test Suite" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-09-08T16:49:17" hostname="MBP-Kamil" time="0.012">
+  <properties/>
+  <testcase name="This test case verifies the operation of the empty list." classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.011"/>
+  <testcase name="This test case verifies the operation of a list containing even numbers" classname="com.kodilla.testing.collection.CollectionTestSuite" time="0.0"/>
+  <system-out><![CDATA[Test Case: begin
+Test Case: end
+Test Case: begin
+Test Case: end
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
