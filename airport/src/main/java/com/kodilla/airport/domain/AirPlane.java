@@ -1,7 +1,12 @@
 package com.kodilla.airport.domain;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Objects;
 
+@Getter
+@Setter
 public class AirPlane {
 
     private final int year;
@@ -20,50 +25,17 @@ public class AirPlane {
         this.model = model;
     }
 
-    public int getYear() {
-        return year;
-    }
-
-    public int getSet() {
-        return seats;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
-
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    public void setClimbSpeed(int climbSpeed) {
-        this.climbSpeed = climbSpeed;
+    public void changeSpeeds(int deltaHorizontal, int deltaVertical) {
+        horizontalSpeed = horizontalSpeed + deltaHorizontal;
+        climbSpeed = climbSpeed + deltaVertical;
     }
 
-    public void setHorizontalSpeed(int horizontalSpeed) {
-        this.horizontalSpeed = horizontalSpeed;
-    }
-
-    public void setTrajectory(int trajectory) {
+    public void changeTrajectory(int trajectory) {
         this.trajectory = trajectory;
-    }
-
-    public void start(int speed, int trajectory) {
-        this.horizontalSpeed = speed;
-        this.trajectory = trajectory;
-    }
-
-    public void land() {
-        this.horizontalSpeed = 0;
-        this.trajectory = 0;
     }
 
     @Override
