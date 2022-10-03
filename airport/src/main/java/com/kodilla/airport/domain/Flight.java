@@ -10,10 +10,6 @@ import java.util.Objects;
 @Getter
 @Builder
 public class Flight {
-    // skad, dokad, ilu pasazerow, godzina startu i ladowania (wedlug planu), identyfikator lotu (np. LO55), gate, samolot ktory realizuje lot
-    // Metoda, ktora obliczy dlugosc lotu
-    // Metoda, ktora sprawdzi (validate), czy dany samolot moze obsluzyc ten lot (liczba pasazerow)
-
     private String flightFrom;
     private String flightTo;
     private int passengersCount;
@@ -23,22 +19,14 @@ public class Flight {
     private String gate;
     private AirPlane plane;
 
-    public Duration flightDuration() {
-        Duration duration = Duration.between(getArrivalTime(), getDepartureTime());
-        return duration;
+    public long getDurationInMinutes() {
+        Duration duration = Duration.between(getDepartureTime(), getArrivalTime());
+        return duration.toMinutes();
     }
 
-    public String plainCapacity () {
-        boolean capacityOk = true;
-        if(capacityOk == plane.getSeats() >= passengersCount) {
-            System.out.println("There is enough place in plane");
-        } else {
-            System.out.println("There is NOT enough place in plane");
-        }
-        return null;
+    public boolean isPlaneCapacity() {
+        return plane.getSeats() >= passengersCount;
     }
-
-
 
     @Override
     public boolean equals(Object o) {

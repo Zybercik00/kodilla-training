@@ -38,6 +38,11 @@ public class AirPlane {
         this.trajectory = trajectory;
     }
 
+    public String createPlane() {
+        String plane = getOwner() + " " + getYear()+ " " + getBrand()+ " " + getModel();
+        return plane;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

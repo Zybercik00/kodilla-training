@@ -1,12 +1,15 @@
 package com.kodilla.airport;
 
 import com.kodilla.airport.domain.AirPlane;
+import com.kodilla.airport.domain.AirPort;
 import com.kodilla.airport.domain.Flight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.Duration;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -104,17 +107,56 @@ class AirportApplicationTests {
                 .build();
 
         //When
-        Duration duration = flight.flightDuration();
-        String  capacity = flight.plainCapacity();
-        System.out.println(duration.toString());
-        System.out.println(flight);
+        long duration = flight.getDurationInMinutes();
+        boolean capacityOk = flight.isPlaneCapacity();
 
         //Then
 
-//        Assertions.assertEquals(PT-2H-5M, duration);
-//        Assertions.assertTrue(true, capacity);
+        Assertions.assertEquals(125, duration);
+        Assertions.assertTrue(capacityOk);
 
     }
+
+    @Test
+    void testing5() {
+        //Given
+        AirPort airPort = AirPort.builder()
+                .name("Warszawa Modlin")
+                .code("MOD")
+                .departures(List.of(
+                        createFlight("RY101", "C01", "Rzym","Warszawa Modlin",  LocalDateTime.of(2022, 10, 2, 10, 50, 00), LocalDateTime.of(2022, 10, 2, 13, 5, 00), 150, createPlane(1999, 240, "Boing", "737")),
+                        createFlight("RY102", "C03", "Berlin", "Warszawa Modlin", LocalDateTime.of(2022, 10, 2, 11, 15, 00), LocalDateTime.of(2022, 10, 2, 12, 50, 00), 180, createPlane(2020, 853, "Airbus", "A380"))
+                ))
+                .arrivals(List.of(
+                        createFlight("RY210", "C01", "Warszawa Modlin", "Amsterdam", LocalDateTime.of(2022, 10, 2, 14, 00, 00), LocalDateTime.of(2022, 10, 2, 16, 10, 00), 131, createPlane(2020, 480, "Boeing", "747"))
+                ))
+                .build();
+        airPort.printDepartureTable();
+        airPort.printArrivalTable();
+
+    }
+
+    private Flight createFlight(String id, String gate, String arrivalCity, String departureCity, LocalDateTime departureTime, LocalDateTime arrivalTime, int passengersCount, AirPlane createPlane) {
+        return Flight.builder()
+                .flightFrom(departureCity)
+                .flightTo(arrivalCity)
+                .arrivalTime(arrivalTime)
+                .departureTime(departureTime)
+                .passengersCount(passengersCount)
+                .flightIdentifier(id)
+                .gate(gate)
+                .plane(createPlane)
+                .build();
+
+    }
+
+    private AirPlane createPlane(int year, int seats, String brand, String model) {
+        AirPlane planeONE = new AirPlane(1998, 240, "Boeing", "747");
+        planeONE.setOwner("Loty");
+        return planeONE;
+    }
+
+
 
 
 }
