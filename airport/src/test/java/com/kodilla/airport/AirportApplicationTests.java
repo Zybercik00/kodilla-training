@@ -6,10 +6,7 @@ import com.kodilla.airport.domain.Flight;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.time.Duration;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 import java.util.stream.IntStream;
@@ -24,7 +21,7 @@ class AirportApplicationTests {
 
     @Test
     void testing() {
-        AirPlane airPlane = new AirPlane(1999,196,"Boeing","737");
+        AirPlane airPlane = new AirPlane(1999, 196, "Boeing", "737");
         airPlane.setOwner("British AirWays");
         System.out.println(airPlane);
         airPlane.changeSpeeds(280, 0);
@@ -120,23 +117,28 @@ class AirportApplicationTests {
     @Test
     void testing5() {
         //Given
+        AirPlane lot = createLotPlane();
+        AirPlane british = createBritishPlane();
+        AirPlane swiss = createSwissPlane();
         AirPort airPort = AirPort.builder()
                 .name("Warszawa Modlin")
                 .code("MOD")
                 .departures(List.of(
-                        createFlight("RY101", "C01", "Rzym","Warszawa Modlin",  LocalDateTime.of(2022, 10, 2, 10, 50, 00), LocalDateTime.of(2022, 10, 2, 13, 5, 00), 150, createPlane(1999, 240, "Boing", "737")),
-                        createFlight("RY102", "C03", "Berlin", "Warszawa Modlin", LocalDateTime.of(2022, 10, 2, 11, 15, 00), LocalDateTime.of(2022, 10, 2, 12, 50, 00), 180, createPlane(2020, 853, "Airbus", "A380"))
+                        createFlight("RY101", "C01", "Rzym", "Warszawa Modlin", LocalDateTime.of(2022, 10, 2, 10, 50, 00), LocalDateTime.of(2022, 10, 2, 13, 5, 00), 150, lot),
+                        createFlight("RY102", "C03", "Berlin", "Warszawa Modlin", LocalDateTime.of(2022, 10, 2, 11, 15, 00), LocalDateTime.of(2022, 10, 2, 12, 50, 00), 180, british)
                 ))
                 .arrivals(List.of(
-                        createFlight("RY210", "C01", "Warszawa Modlin", "Amsterdam", LocalDateTime.of(2022, 10, 2, 14, 00, 00), LocalDateTime.of(2022, 10, 2, 16, 10, 00), 131, createPlane(2020, 480, "Boeing", "747"))
+                        createFlight("RY210", "C01", "Warszawa Modlin", "Amsterdam", LocalDateTime.of(2022, 10, 2, 14, 00, 00), LocalDateTime.of(2022, 10, 2, 16, 10, 00), 131, swiss),
+                        createFlight("RY304", "C27", "Warszawa Modlin", "Bazylea", LocalDateTime.of(2022, 10, 14, 17, 00, 00), LocalDateTime.of(2022, 10, 14, 16, 10, 00), 131, swiss)
                 ))
+
                 .build();
         airPort.printDepartureTable();
         airPort.printArrivalTable();
 
     }
 
-    private Flight createFlight(String id, String gate, String arrivalCity, String departureCity, LocalDateTime departureTime, LocalDateTime arrivalTime, int passengersCount, AirPlane createPlane) {
+    private Flight createFlight(String id, String gate, String arrivalCity, String departureCity, LocalDateTime departureTime, LocalDateTime arrivalTime, int passengersCount, AirPlane plane) {
         return Flight.builder()
                 .flightFrom(departureCity)
                 .flightTo(arrivalCity)
@@ -145,18 +147,28 @@ class AirportApplicationTests {
                 .passengersCount(passengersCount)
                 .flightIdentifier(id)
                 .gate(gate)
-                .plane(createPlane)
+                .plane(plane)
                 .build();
-
-    }
-
-    private AirPlane createPlane(int year, int seats, String brand, String model) {
-        AirPlane planeONE = new AirPlane(1998, 240, "Boeing", "747");
-        planeONE.setOwner("Loty");
-        return planeONE;
     }
 
 
+    private AirPlane createLotPlane() {
 
+        AirPlane airPlane1 = new AirPlane(2000, 800, "Airbus", "737");
+        airPlane1.setOwner("LOT1");
+        return airPlane1;
+    }
+
+    private AirPlane createBritishPlane() {
+        AirPlane airPlane2 = new AirPlane(2020, 800, "Airbus", "747");
+        airPlane2.setOwner("British");
+        return airPlane2;
+    }
+
+    private AirPlane createSwissPlane() {
+        AirPlane airPlane3 = new AirPlane(2000, 800, "Airbus", "000");
+        airPlane3.setOwner("SWISS");
+        return airPlane3;
+    }
 
 }

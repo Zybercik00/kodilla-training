@@ -3,6 +3,7 @@ package com.kodilla.airport.domain;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,6 +14,7 @@ public class AirPort {
     private String code;
     private List<Flight> arrivals;
     private List<Flight> departures;
+    private List<AirPlane> planes;
 
     public void printDepartureTable() {
         printHeader(false);
@@ -26,6 +28,7 @@ public class AirPort {
         printFooter();
     }
 
+
     private void printHeader(boolean isArrival) {
         System.out.println(isArrival ? "Arrivals" : "Departures");    // ternary operator czyli skrocony zapis ifa
         System.out.println("*********************************************************************");
@@ -38,8 +41,9 @@ public class AirPort {
     }
 
     private void printFlight(Flight flight, boolean isArrival) {
-            System.out.println(flight.getFlightIdentifier() + "\t\t\t" + (isArrival ? flight.getFlightFrom() : flight.getFlightTo()) + "\t\t\t" + flight.getGate() + "\t\t\t" + flight.getDepartureTime().toLocalTime() + "\t\t" + flight.getPlane());
+            System.out.println(flight.getFlightIdentifier() + "\t\t\t" + (isArrival ? flight.getFlightFrom() : flight.getFlightTo()) + "\t\t\t\t" + flight.getGate() + "\t\t\t" + flight.getDepartureTime().toLocalTime() + "\t\t" + flight.getPlane().getOwner());
     }
+
 
     @Override
     public boolean equals(Object o) {
@@ -61,6 +65,7 @@ public class AirPort {
                 ", code='" + code + '\'' +
                 ", arrivals=" + arrivals +
                 ", departures=" + departures +
+                ", planes=" + planes +
                 '}';
     }
 }

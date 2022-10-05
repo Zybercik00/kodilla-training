@@ -24,6 +24,7 @@ public class Flight {
         return duration.toMinutes();
     }
 
+
     public boolean isPlaneCapacity() {
         return plane.getSeats() >= passengersCount;
     }
@@ -54,6 +55,5 @@ public class Flight {
                 ", plane=" + plane +
                 '}';
     }
-
 }
 

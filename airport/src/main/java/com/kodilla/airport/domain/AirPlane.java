@@ -1,10 +1,13 @@
 package com.kodilla.airport.domain;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
-
+//@Builder
 @Getter
 @Setter
 public class AirPlane {
@@ -25,6 +28,11 @@ public class AirPlane {
         this.model = model;
     }
 
+//    public AirPlane createPlane() {
+//        return  new AirPlane(year, seats, brand, model);
+//    }
+
+
     public void setOwner(String owner) {
         this.owner = owner;
     }
@@ -38,10 +46,6 @@ public class AirPlane {
         this.trajectory = trajectory;
     }
 
-    public String createPlane() {
-        String plane = getOwner() + " " + getYear()+ " " + getBrand()+ " " + getModel();
-        return plane;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -58,14 +62,15 @@ public class AirPlane {
 
     @Override
     public String toString() {
-        return "AirPlane: " +
-                "year: " + year +
-                ", seats: " + seats +
-                ", brand: " + brand + '\'' +
-                ", model: " + model + '\'' +
-                ", owner: " + owner + '\'' +
-                ", climbSpeed: " + climbSpeed +
-                ", horizontalSpeed: " + horizontalSpeed +
-                ", trajectory: " + trajectory;
+        return "AirPlane{" +
+                "year=" + year +
+                ", seats=" + seats +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", owner='" + owner + '\'' +
+                ", climbSpeed=" + climbSpeed +
+                ", horizontalSpeed=" + horizontalSpeed +
+                ", trajectory=" + trajectory +
+                '}';
     }
 }
