@@ -30,7 +30,7 @@ public abstract class Star implements CelestialBody {
                 .sum();
     }
 
-    public double getAverygPlanetMass() {
+    public double getAveragePlanetMass() {
         return planets.stream()
                 .mapToDouble(p -> p.getMass())
                 .average()

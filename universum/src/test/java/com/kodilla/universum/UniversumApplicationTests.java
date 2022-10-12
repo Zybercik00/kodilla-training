@@ -1,7 +1,9 @@
 package com.kodilla.universum;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.Set;
 
 
 class UniversumApplicationTests {
@@ -9,14 +11,15 @@ class UniversumApplicationTests {
     @Test
     void milkyWay() {
         Galaxy galaxy = new Galaxy("MilkyWay");
-        Star sun = new RedGiant("Sun", 200);
-        Planet earth = new RockyPlanet("Earth", 100);
-        Planet mercury = new RockyPlanet("Mercury", 300);
-        Planet venus = new RockyPlanet("Venus", 400);
-        Planet saturn = new RockyPlanet("Saturn", 500);
-        Planet jupiter = new RockyPlanet("Jupiter", 600);
-        Planet mars = new RockyPlanet("Mars", 600);
-
+        Star sun = new RedGiant("Sun", 1889.4);
+        Planet earth = new RockyPlanet("Earth", 59);
+        Planet mercury = new RockyPlanet("Mercury", 3.2);
+        Planet venus = new RockyPlanet("Venus", 48);
+        Planet saturn = new RockyPlanet("Saturn", 5600);
+        Planet jupiter = new RockyPlanet("Jupiter", 1800);
+        Planet mars = new RockyPlanet("Mars", 6.4);
+        Star syriusz = new RedGiant("Syriusz", 40000000);
+        Star sn2016aps = new Supernova("SN2016aps", 200000000);
 
         sun.addPlanet(earth);
         sun.addPlanet(mercury);
@@ -25,21 +28,16 @@ class UniversumApplicationTests {
         sun.addPlanet(jupiter);
         sun.addPlanet(mars);
         galaxy.addStar(sun);
-        System.out.println(galaxy);
+        galaxy.addStar(syriusz);
+        galaxy.addStar(sn2016aps);
+        galaxy.printGalaxy();
 
-        System.out.println(sun.getTotalMass());
-        System.out.println(sun.getAverygPlanetMass());
-        System.out.println(sun.getBiggestPlanet());
-        System.out.println(sun.getBiggerThan(earth));
-
-
-
-        // TODO
-        // zrob uklad sloneczny: Slonce -> Merkury, Wenus, Ziemia, Mars, Jowissz, Saturn ...
-        // dodaj jeszcze ze dwie gwiazdy ...
-        // wydrukuj galaktyke
-        // wydrukuj calkowita mase galaktyki
-        // Przetestować metody
+        Assertions.assertEquals(9406.0, sun.getTotalMass());
+        Assertions.assertEquals(1252.766, sun.getAveragePlanetMass(), 0.01);
+        Assertions.assertEquals(Set.of(saturn, jupiter), sun.getBiggerThan(earth));
+        Assertions.assertEquals(Set.of(earth, venus, jupiter, saturn), sun.getBiggerThan(mars));
+        Assertions.assertEquals(saturn, sun.getBiggestPlanet());
+        Assertions.assertNull(sn2016aps.getBiggestPlanet());
     }
 
 }

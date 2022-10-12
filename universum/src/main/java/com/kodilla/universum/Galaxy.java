@@ -3,6 +3,7 @@ package com.kodilla.universum;
 import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Galaxy implements CelestialBody {
 
@@ -19,10 +20,19 @@ public class Galaxy implements CelestialBody {
     }
 
     public void printGalaxy() {
-        // TODO
-        // Nazwa
-        // Gwaizda1 -> planeta1, planeta2, planeta3 ...
-        // Gwiazda 2 -> plneta1, planeta2 ...
+
+//        String print = String.format("Nazwa galaktyki: %s\nGwiazda galaktyki: %s \nPlanety układu: %s", name, stars.stream().map(star -> star.getName()).collect(Collectors.toSet()), stars.stream().map(star -> star.getName()).collect(Collectors.joining(", ")));
+//        System.out.println(print);
+        String print = "Nazwa galaktyki: " + name;
+        System.out.println(print);
+        for (Star star : stars) {
+            System.out.println("Gwiazda galaktyki: " + star.getName());
+            if (!star.getPlanets().isEmpty()) {
+                System.out.println("Planety układu: " + star.getPlanets().stream().map(planet -> planet.getName()).collect(Collectors.joining(", ")));
+            } else {
+                System.out.println("Brak planet");
+            }
+        }
     }
 
     @Override
