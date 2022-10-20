@@ -9,10 +9,10 @@ public class ArrayOperationsTestSuite {
     void testGetAverage() {
 
         //Given
-        int[] numbers = new int[] {2, 8, 1};
+        int[] numbers = new int[] {2, 8, 1, 3};
         // when
         double result = ArrayOperations.getAverage(numbers);
         //then
-        Assertions.assertEquals(3.666, result, 0.001);
+        Assertions.assertEquals(3.5, result, 0.001);
     }
 }
