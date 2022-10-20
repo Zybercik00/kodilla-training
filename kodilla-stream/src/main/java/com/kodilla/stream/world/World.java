@@ -7,7 +7,6 @@ public class World {
 
     private List<Continent> continents;
 
-    // konstrunktor
     public World(List<Continent> continents) {
         this.continents = continents;
     }
@@ -20,12 +19,3 @@ public class World {
         return result;
     }
 }
-
-
-
-//World -> Azja -> Rosja, Ukraina, Chiny, Japonia ....
-//      -> Afryka -> RPA, Egipt, Algieria
-//      -> Europa -> Polsa, Szwajcaria, Niemcy
-//
-//
-//Rosja, Ukraina, Chiny, Japonia, RPA, Egipt, Algieria, Polsa, Szwajcaria, Niemcy
