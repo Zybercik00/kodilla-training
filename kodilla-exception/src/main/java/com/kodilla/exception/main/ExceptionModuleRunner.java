@@ -4,8 +4,13 @@ import com.kodilla.exception.io.FileReader;
 
 public class ExceptionModuleRunner {
 
-    public static void main(String[] args) {
+    public static void main(String[] args)  {
         FileReader fileReader = new FileReader();
-        fileReader.readFile();
+        try {
+            fileReader.readFile();
+            fileReader.readFile("nie ma takiego pliku");
+        } catch (Exception e) {
+            System.out.println("coś się wysypało");
+        }
     }
 }
