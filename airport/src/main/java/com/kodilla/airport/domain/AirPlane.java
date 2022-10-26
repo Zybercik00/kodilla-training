@@ -1,7 +1,15 @@
 package com.kodilla.airport.domain;
 
-import java.util.Objects;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+//@Builder
+@Getter
+@Setter
 public class AirPlane {
 
     private final int year;
@@ -20,51 +28,24 @@ public class AirPlane {
         this.model = model;
     }
 
-    public int getYear() {
-        return year;
-    }
+//    public AirPlane createPlane() {
+//        return  new AirPlane(year, seats, brand, model);
+//    }
 
-    public int getSet() {
-        return seats;
-    }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public String getOwner() {
-        return owner;
-    }
 
     public void setOwner(String owner) {
         this.owner = owner;
     }
 
-    public void setClimbSpeed(int climbSpeed) {
-        this.climbSpeed = climbSpeed;
+    public void changeSpeeds(int deltaHorizontal, int deltaVertical) {
+        horizontalSpeed = horizontalSpeed + deltaHorizontal;
+        climbSpeed = climbSpeed + deltaVertical;
     }
 
-    public void setHorizontalSpeed(int horizontalSpeed) {
-        this.horizontalSpeed = horizontalSpeed;
-    }
-
-    public void setTrajectory(int trajectory) {
+    public void changeTrajectory(int trajectory) {
         this.trajectory = trajectory;
     }
 
-    public void start(int speed, int trajectory) {
-        this.horizontalSpeed = speed;
-        this.trajectory = trajectory;
-    }
-
-    public void land() {
-        this.horizontalSpeed = 0;
-        this.trajectory = 0;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -81,14 +62,15 @@ public class AirPlane {
 
     @Override
     public String toString() {
-        return "AirPlane: " +
-                "year: " + year +
-                ", seats: " + seats +
-                ", brand: " + brand + '\'' +
-                ", model: " + model + '\'' +
-                ", owner: " + owner + '\'' +
-                ", climbSpeed: " + climbSpeed +
-                ", horizontalSpeed: " + horizontalSpeed +
-                ", trajectory: " + trajectory;
+        return "AirPlane{" +
+                "year=" + year +
+                ", seats=" + seats +
+                ", brand='" + brand + '\'' +
+                ", model='" + model + '\'' +
+                ", owner='" + owner + '\'' +
+                ", climbSpeed=" + climbSpeed +
+                ", horizontalSpeed=" + horizontalSpeed +
+                ", trajectory=" + trajectory +
+                '}';
     }
 }
