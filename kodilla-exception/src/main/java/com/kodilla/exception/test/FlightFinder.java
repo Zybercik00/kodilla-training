@@ -15,11 +15,9 @@ public class FlightFinder {
 
         Boolean result = flights.get(flight.getArrivalAirport());
         if (result != null) {
-            System.out.println("Flight is posible");
+            return result;
         } else {
             throw new RouteNotFoundException();
         }
-        return result;
-
     }
 }
