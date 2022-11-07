@@ -8,8 +8,10 @@ public class Application {
         flightRetriever.addFlight(new Flight("Warszawa", "Krakow"));
         flightRetriever.addFlight(new Flight("Krakow", "Warszawa"));
         flightRetriever.addFlight(new Flight("Warszawa", "Gdansk"));
+        flightRetriever.addFlight(new Flight("Gdansk", "Warszawa"));
         flightRetriever.searchArrivalsFlight("Warszawa");
-        flightRetriever.searchDeparturesFlight("Warszawa");
+        flightRetriever.searchDeparturesFlight("Gdansk");
+
 
 
     }

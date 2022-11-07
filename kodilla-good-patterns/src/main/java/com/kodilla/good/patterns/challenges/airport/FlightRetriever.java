@@ -21,7 +21,7 @@ public class FlightRetriever {
         List<Flight> listDepartures = flightList
                 .stream()
                 .filter(f -> f.getDepartures().equals(departures))
-                .collect(Collectors.toList());
+                .toList();
 
         if (listDepartures.size() == 0) {
             System.out.println("Nie wyszukano lotu " + departures);
@@ -34,8 +34,8 @@ public class FlightRetriever {
     public void searchArrivalsFlight(String arrivals) {
         List<Flight> listArrivals = flightList
                 .stream()
-                .filter(f -> f.getDepartures().equals(arrivals))
-                .collect(Collectors.toList());
+                .filter(f -> f.getArrivals().equals(arrivals))
+                .toList();
 
 
         if (listArrivals.size() == 0) {
