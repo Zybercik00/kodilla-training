@@ -20,8 +20,6 @@ public class BoardTestSuite {
         assertTrue(listToDoExist);
         assertTrue(listInProgressExist);
         assertTrue(listDoneExist);
-
-
         }
 
     @Test
@@ -33,10 +31,11 @@ public class BoardTestSuite {
 
 
         toDoList.getTasks().add("newTasksListToDo");
-        System.out.println(toDoList);
         inProgressList.getTasks().add("tasksListInProgress");
-        System.out.println(inProgressList);
         doneList.getTasks().add("doneTasksList");
-        System.out.println(doneList);
+
+        assertNotNull(toDoList);
+        assertNotNull(inProgressList);
+        assertNotNull(doneList);
     }
 }

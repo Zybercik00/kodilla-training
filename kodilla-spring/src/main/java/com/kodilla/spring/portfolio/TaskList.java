@@ -16,7 +16,6 @@ public class TaskList {
 
     @Override
     public String toString() {
-        return "tasks=" + tasks +
-                '}';
+        return tasks.toString();
     }
 }
