@@ -22,9 +22,9 @@ public class CalculatorTestSuite {
         double divResult = calculator.div(10.0, 2.0);
 
 
-        assertEquals(0, subResult);
-        assertEquals(7, addResult);
-        assertEquals(4, mulResult);
-        assertEquals(5, divResult);
+        assertEquals(0, subResult, 0.001);
+        assertEquals(7, addResult, 0.001);
+        assertEquals(4, mulResult, 0.001);
+        assertEquals(5, divResult, 0.001);
     }
 }
