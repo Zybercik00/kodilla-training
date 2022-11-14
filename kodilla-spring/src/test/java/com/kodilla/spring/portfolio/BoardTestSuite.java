@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 public class BoardTestSuite {
@@ -16,8 +17,12 @@ public class BoardTestSuite {
         boolean listInProgressExist = context.containsBean("inProgressList");
         boolean listDoneExist = context.containsBean("doneList");
 
-        System.out.println("List toDo exist: " + listToDoExist + " List inProgres exist: " + listInProgressExist + " List done exist: " + listDoneExist);
-    }
+        assertTrue(listToDoExist);
+        assertTrue(listInProgressExist);
+        assertTrue(listDoneExist);
+
+
+        }
 
     @Test
     void addTest() {
