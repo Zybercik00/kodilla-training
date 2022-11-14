@@ -12,6 +12,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kodilla-spring" />
+            <option value="$PROJECT_DIR$/kodilla-spring-web" />
             <option value="$PROJECT_DIR$/kodilla-testing" />
           </set>
         </option>
@@ -50,7 +51,17 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kodilla-spring" />
+            <option value="$PROJECT_DIR$/kodilla-spring-web" />
             <option value="$PROJECT_DIR$/kodilla-testing" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kodilla-spring-web" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$/kodilla-spring-web" />
           </set>
         </option>
       </GradleProjectSettings>
