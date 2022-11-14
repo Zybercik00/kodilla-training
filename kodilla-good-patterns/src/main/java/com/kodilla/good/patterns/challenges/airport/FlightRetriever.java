@@ -23,9 +23,8 @@ public class FlightRetriever {
                 .toList();
 
         if (listDepartures.size() == 0) {
-            System.out.println("Nie wyszukano lotu " + departures);
+            return null;
         }
-
         return listDepartures;
     }
 
@@ -36,9 +35,8 @@ public class FlightRetriever {
                 .toList();
 
         if (listArrivals.size() == 0) {
-            System.out.println("Nie wyszukano lotu " + arrivals);
+           return  null;
         }
-
             return listArrivals;
     }
 }
