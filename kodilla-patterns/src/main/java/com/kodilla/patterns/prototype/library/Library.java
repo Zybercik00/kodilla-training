@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class Library extends Prototype<Library> {
 
-     String name;
-     Set<Book> books = new HashSet<>();
+     private String name;
+     private Set<Book> books = new HashSet<>();
 
     public Library(final String name) {
         this.name = name;
@@ -35,7 +35,7 @@ public class Library extends Prototype<Library> {
         clonedLibrary.books = new HashSet<>();
         Book clonedBook = null;
         for (Book book : books) {
-            clonedBook = new Book(book.title, book.author, book.publicationDate);
+            clonedBook = new Book(book.getTitle(), book.getAuthor(), book.getPublicationDate());
             clonedLibrary.getBooks().add(clonedBook);
         }
         return clonedLibrary;
