@@ -29,11 +29,32 @@ public class DbManagerTestSuite {
 
         int counter = 0;
         while (rs.next()) {
-            System.out.println(rs.getInt("ID") + ", " + rs.getString("FIRSTNAME") + ", " + rs.getString("LASTNAME"));
+            System.out.println(rs.getInt("ID") + ", " +
+                    rs.getString("FIRSTNAME") + ", " +
+                    rs.getString("LASTNAME"));
             counter++;
         }
         rs.close();
         statement.close();
         assertEquals(5, counter);
+    }
+
+    @Test
+    void testSelectUsersAndPosts() throws SQLException {
+        DbManager dbManager = DbManager.getInstance();
+
+        String sqlQuery = "SELECT U.FIRSTNAME, U.LASTNAME FROM USERS U JOIN POSTS P ON U.ID = P.USER_ID GROUP BY U.ID HAVING COUNT(*) > 3";
+        Statement statement = dbManager.getConnection().createStatement();
+        ResultSet rs = statement.executeQuery(sqlQuery);
+
+        int counter = 0;
+        while (rs.next()) {
+            System.out.println(rs.getString("FIRSTNAME") + ", " +
+                    rs.getString("LASTNAME"));
+            counter++;
+        }
+        rs.close();
+        statement.close();
+        assertEquals(1, counter);
     }
 }
