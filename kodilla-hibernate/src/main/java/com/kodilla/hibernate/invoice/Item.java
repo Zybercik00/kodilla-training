@@ -12,7 +12,6 @@ import java.util.List;
 public class Item {
 
     private int id;
-    private Product product;
     private BigDecimal price;
     private int quantity;
     private BigDecimal value;
@@ -38,10 +37,7 @@ public class Item {
         return id;
     }
 
-//    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-//    public Product getProduct() {
-//        return product;
-//    }
+//
     @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     public List<Product> getProducts() {
         return products;
@@ -69,10 +65,6 @@ public class Item {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 
     public void setPrice(BigDecimal price) {

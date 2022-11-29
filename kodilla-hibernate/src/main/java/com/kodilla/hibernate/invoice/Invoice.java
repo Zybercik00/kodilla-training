@@ -31,7 +31,7 @@ public class Invoice {
         return id;
     }
 
-//    @OneToOne(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @Column(name = "NUMBER")
     public String getNumber() {
         return number;
     }
