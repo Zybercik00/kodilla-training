@@ -1,8 +1,10 @@
 package com.kodilla.hibernate.task;
 
+import com.kodilla.hibernate.tasklist.TaskList;
 import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.Date;
 
 @Entity
@@ -13,6 +15,8 @@ public class Task {
     private String description;
     private Date created;
     private int duration;
+    private TaskList taskList;
+    private TaskFinancialDetails taskFinancialDetails;
 
     public Task() {
 
@@ -21,6 +25,7 @@ public class Task {
         this.description = description;
         this.created = new Date();
         this.duration = duration;
+        this.taskList = new TaskList();
     }
 
     @Id
@@ -47,6 +52,17 @@ public class Task {
         return duration;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "TASKLIST_ID")
+    public TaskList getTaskList() {
+        return taskList;
+    }
+
+    @OneToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    public TaskFinancialDetails getTaskFinancialDetails() {
+        return taskFinancialDetails;
+    }
+
     public void setId(int id) {
         this.id = id;
     }
@@ -61,5 +77,13 @@ public class Task {
 
     public void setDuration(int duration) {
         this.duration = duration;
+    }
+
+    public void setTaskList(TaskList taskList) {
+        this.taskList = taskList;
+    }
+
+    public void setTaskFinancialDetails(TaskFinancialDetails taskFinancialDetails) {
+        this.taskFinancialDetails = taskFinancialDetails;
     }
 }
