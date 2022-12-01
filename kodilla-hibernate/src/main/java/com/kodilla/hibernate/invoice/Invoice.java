@@ -1,13 +1,11 @@
 package com.kodilla.hibernate.invoice;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Table(name = "INVOICE")
+@Table(name = "INVOICES")
 public class Invoice {
 
     private int id;
@@ -25,18 +23,15 @@ public class Invoice {
 
     @Id
     @GeneratedValue
-    @NotNull
-    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
-    @Column(name = "NUMBER")
     public String getNumber() {
         return number;
     }
 
-    @OneToMany(targetEntity = Item.class, cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "invoice")
     public List<Item> getItems() {
         return items;
     }

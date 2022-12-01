@@ -1,14 +1,10 @@
 package com.kodilla.hibernate.invoice;
 
-import com.sun.istack.NotNull;
-
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
-@Table(name = "ITEM")
+@Table(name = "ITEMS")
 public class Item {
 
     private int id;
@@ -16,31 +12,30 @@ public class Item {
     private int quantity;
     private BigDecimal value;
     private Invoice invoice;
-    private List<Product> products = new ArrayList<>();
+    private Product product;
 
     public Item() {
 
     }
 
-    public Item(BigDecimal price, int quantity, BigDecimal value) {
+    public Item(BigDecimal price, int quantity, BigDecimal value, Invoice invoice, Product product) {
         this.price = price;
         this.quantity = quantity;
         this.value = value;
-        this.products = new ArrayList<>();
+        this.product = product;
+        this.invoice = invoice;
     }
 
     @Id
-    @NotNull
     @GeneratedValue
-    @Column(name = "ID", unique = true)
     public int getId() {
         return id;
     }
 
-//
-    @OneToMany(targetEntity = Product.class, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    public List<Product> getProducts() {
-        return products;
+    @ManyToOne
+    @JoinColumn(name = "PRODUCT_ID")
+    public Product getProduct() {
+        return product;
     }
 
     public BigDecimal getPrice() {
@@ -58,7 +53,7 @@ public class Item {
     }
 
     @ManyToOne
-    @JoinColumn(name = "INVOICE")
+    @JoinColumn(name = "INVOICE_ID")
     public Invoice getInvoice() {
         return invoice;
     }
@@ -83,7 +78,7 @@ public class Item {
         this.invoice = invoice;
     }
 
-    public void setProducts(List<Product> products) {
-        this.products = products;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 }
