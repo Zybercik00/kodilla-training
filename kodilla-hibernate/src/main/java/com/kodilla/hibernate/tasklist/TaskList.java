@@ -17,16 +17,12 @@ public class TaskList {
     private List<Task> tasks = new ArrayList<>();
 
     public TaskList() {
-
     }
-
     public TaskList(String listName, String description) {
         this.id = id;
         this.listName = listName;
         this.description = description;
-
     }
-
     @Id
     @GeneratedValue
     @NotNull
@@ -45,11 +41,7 @@ public class TaskList {
         return description;
     }
 
-    @OneToMany(
-            targetEntity = Task.class,
-            mappedBy = "taskList",
-            cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+    @OneToMany(targetEntity = Task.class, mappedBy = "taskList", cascade = CascadeType.ALL, fetch = FetchType.LAZY
     )
     public List<Task> getTasks() {
         return tasks;
@@ -70,4 +62,5 @@ public class TaskList {
     public void setTasks(List<Task> tasks) {
         this.tasks = tasks;
     }
+
 }
