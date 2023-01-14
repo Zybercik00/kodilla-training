@@ -3,8 +3,7 @@ package com.kodilla.hibernate.task;
 import com.kodilla.hibernate.tasklist.TaskList;
 import org.springframework.lang.NonNull;
 
-import javax.persistence.*;
-import java.util.ArrayList;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @NamedQueries({@NamedQuery(name = "Task.retrieveLongTasks", query = "FROM Task WHERE duration >10"), @NamedQuery(name = "Task.retrieveShortTasks", query = "FROM Task WHERE duration <= 10")})

@@ -11,8 +11,8 @@
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/kodilla-hibernate" />
             <option value="$PROJECT_DIR$/kodilla-jdbc" />
+            <option value="$PROJECT_DIR$/kodilla-patterns2" />
             <option value="$PROJECT_DIR$/kodilla-spring" />
             <option value="$PROJECT_DIR$/kodilla-spring-intro" />
             <option value="$PROJECT_DIR$/kodilla-testing" />
@@ -54,6 +54,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/kodilla-hibernate" />
             <option value="$PROJECT_DIR$/kodilla-jdbc" />
+            <option value="$PROJECT_DIR$/kodilla-patterns2" />
             <option value="$PROJECT_DIR$/kodilla-spring" />
             <option value="$PROJECT_DIR$/kodilla-spring-intro" />
             <option value="$PROJECT_DIR$/kodilla-testing" />
@@ -71,12 +72,26 @@
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/kodilla-patterns2" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/kodilla-jdbc" />
+            <option value="$PROJECT_DIR$/kodilla-patterns2" />
+            <option value="$PROJECT_DIR$/kodilla-spring" />
+            <option value="$PROJECT_DIR$/kodilla-spring-intro" />
+            <option value="$PROJECT_DIR$/kodilla-testing" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/kodilla-spring" />
         <option name="modules">
           <set>
             <option value="$PROJECT_DIR$" />
-            <option value="$PROJECT_DIR$/kodilla-hibernate" />
             <option value="$PROJECT_DIR$/kodilla-jdbc" />
+            <option value="$PROJECT_DIR$/kodilla-patterns2" />
             <option value="$PROJECT_DIR$/kodilla-spring" />
             <option value="$PROJECT_DIR$/kodilla-spring-intro" />
             <option value="$PROJECT_DIR$/kodilla-testing" />

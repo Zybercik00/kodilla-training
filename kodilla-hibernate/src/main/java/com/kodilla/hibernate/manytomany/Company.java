@@ -1,10 +1,17 @@
 package com.kodilla.hibernate.manytomany;
 
-import com.sun.istack.NotNull;
+import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.data.relational.core.mapping.Table;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
+
+@NamedQuery(
+        name = "Company.retrieveCompanyWithName",
+        query = "from Company where name like :companyName"
+)
 
 @Entity
 @Table(name = "COMPANIES")

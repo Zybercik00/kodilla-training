@@ -1,11 +1,17 @@
 package com.kodilla.hibernate.manytomany;
 
-import com.sun.istack.NotNull;
+import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 
-import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
+
+@NamedQuery(
+        name = "Employees.retrieveEmployeesByLastName",
+        query = "from Employee where lastName like :lastName"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {
